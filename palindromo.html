@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var min
+        var max
+        var cap
+        var cont1 = 0
+        var cont2 = 0
+
+        var pruebas = prompt('Cuantas pruebas desea realizar')
+
+        function palindromos() {
+            for (let j = 0; j < pruebas; j++) {
+                min = prompt(`Valor inicial del intervalo`)
+                max = prompt(`Valor final del intervalo`)
+                for (let i = min; i <= max; i++) {
+                    validar(i)
+
+                }
+            }
+        }
+
+        function validar(i) {
+            var z = i.toString().split('').reverse().join('');
+            var m = parseInt(max);
+           
+            if (i == z) {
+                cap = i * i
+                var q = cap.toString().split('').reverse().join('');
+                if (cap === parseInt(q) && cap <= max) {
+                    cont1++
+                }
+            }
+            if (i === m) {
+                cont2++
+                console.log(`Case${cont2}: ${cont1}`);
+                cont1 = 0;
+            }
+        }
+
+        palindromos()
+
+    </script>
+</body>
+
+</html

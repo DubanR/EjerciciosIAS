@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tic tac Toe</title>
+
+        <style>
+            #container {
+                display: grid;
+                grid-template: repeat(4, 50px) / repeat(4, 50px) ;
+            }
+
+            span {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid blue;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="container"></div>
+        <script>
+
+            var cant = prompt('Cuantas pruebas desea realizar')
+            var p = 0
+
+            var game = [
+                ['', '', '', ''],
+                ['', '', '', ''],
+                ['', '', '', ''],
+                ['', '', '', ''],
+            ]
+            
+            let currentUser = 'X'
+            var draw = 0
+            var i = 0
+            var j = 0
+
+            i = Math.floor((Math.random() * (4 - 0)) + 0)
+            j = Math.floor((Math.random() * (4 - 0)) + 0)
+            game[i][j] = 'T'
+
+            function checkStatus(user) {
+
+                // chequeando las filas 
+                if (game[0][0] === user && game[0][1] === user && game[0][2] === user && game[0][3] === user) {
+                    return true
+                }
+                if (game[0][0] === 'T' && game[0][1] === user && game[0][2] === user && game[0][3] === user) {
+                    return true
+                }
+                if (game[0][0] === user && game[0][1] === 'T' && game[0][2] === user && game[0][3] === user) {
+                    return true
+                }
+                if (game[0][0] === user && game[0][1] === user && game[0][2] === 'T' && game[0][3] === user) {
+                    return true
+                }
+                if (game[0][0] === user && game[0][1] === user && game[0][2] === user && game[0][3] === 'T') {
+                    return true
+                }
+
+
+                if (game[1][0] === user && game[1][1] === user && game[1][2] === user && game[1][3] === user) {
+                    return true
+                }
+                if (game[1][0] === 'T' && game[1][1] === user && game[1][2] === user && game[1][3] === user) {
+                    return true
+                }
+                if (game[1][0] === user && game[1][1] === 'T' && game[1][2] === user && game[1][3] === user) {
+                    return true
+                }
+                if (game[1][0] === user && game[1][1] === user && game[1][2] === 'T' && game[1][3] === user) {
+                    return true
+                }
+                if (game[1][0] === user && game[1][1] === user && game[1][2] === user && game[1][3] === 'T') {
+                    return true
+                }
+
+
+                if (game[2][0] === user && game[2][1] === user && game[2][2] === user && game[2][3] === user) {
+                    return true
+                }
+                if (game[2][0] === 'T' && game[2][1] === user && game[2][2] === user && game[2][3] === user) {
+                    return true
+                }
+                if (game[2][0] === user && game[2][1] === 'T' && game[2][2] === user && game[2][3] === user) {
+                    return true
+                }
+                if (game[2][0] === user && game[2][1] === user && game[2][2] === 'T' && game[2][3] === user) {
+                    return true
+                }
+                if (game[2][0] === user && game[2][1] === user && game[2][2] === user && game[2][3] === 'T') {
+                    return true
+                }
+
+
+                if (game[3][0] === user && game[3][1] === user && game[3][2] === user && game[3][3] === user) {
+                    return true
+                }
+                if (game[3][0] === 'T' && game[3][1] === user && game[3][2] === user && game[3][3] === user) {
+                    return true
+                }
+                if (game[3][0] === user && game[3][1] === 'T' && game[3][2] === user && game[3][3] === user) {
+                    return true
+                }
+                if (game[3][0] === user && game[3][1] === user && game[3][2] === 'T' && game[3][3] === user) {
+                    return true
+                }
+                if (game[3][0] === user && game[3][1] === user && game[3][2] === user && game[3][3] === 'T') {
+                    return true
+                }
+
+                // chequeando las columnas
+                if (game[0][0] === user && game[1][0] === user && game[2][0] === user && game[3][0] === user) {
+                    return true
+                }
+                if (game[0][0] === 'T' && game[1][0] === user && game[2][0] === user && game[3][0] === user) {
+                    return true
+                }
+                if (game[0][0] === user && game[1][0] === 'T' && game[2][0] === user && game[3][0] === user) {
+                    return true
+                }
+                if (game[0][0] === user && game[1][0] === user && game[2][0] === 'T' && game[3][0] === user) {
+                    return true
+                }
+                if (game[0][0] === user && game[1][0] === user && game[2][0] === user && game[3][0] === 'T') {
+                    return true
+                }
+
+
+                if (game[0][1] === user && game[1][1] === user && game[2][1] === user && game[3][1] === user) {
+                    return true
+                }
+                if (game[0][1] === 'T' && game[1][1] === user && game[2][1] === user && game[3][1] === user) {
+                    return true
+                }
+                if (game[0][1] === user && game[1][1] === 'T' && game[2][1] === user && game[3][1] === user) {
+                    return true
+                }
+                if (game[0][1] === user && game[1][1] === user && game[2][1] === 'T' && game[3][1] === user) {
+                    return true
+                }
+                if (game[0][1] === user && game[1][1] === user && game[2][1] === user && game[3][1] === 'T') {
+                    return true
+                }
+
+
+                if (game[0][2] === user && game[1][2] === user && game[2][2] === user && game[3][2] === user) {
+                    return true
+                }
+                if (game[0][2] === 'T' && game[1][2] === user && game[2][2] === user && game[3][2] === user) {
+                    return true
+                }
+                if (game[0][2] === user && game[1][2] === 'T' && game[2][2] === user && game[3][2] === user) {
+                    return true
+                }
+                if (game[0][2] === user && game[1][2] === user && game[2][2] === 'T' && game[3][2] === user) {
+                    return true
+                }
+                if (game[0][2] === user && game[1][2] === user && game[2][2] === user && game[3][2] === 'T') {
+                    return true
+                }
+
+
+                if (game[0][3] === user && game[1][3] === user && game[2][3] === user && game[3][3] === user) {
+                    return true
+                }
+                if (game[0][3] === 'T' && game[1][3] === user && game[2][3] === user && game[3][3] === user) {
+                    return true
+                }
+                if (game[0][3] === user && game[1][3] === 'T' && game[2][3] === user && game[3][3] === user) {
+                    return true
+                }
+                if (game[0][3] === user && game[1][3] === user && game[2][3] === 'T' && game[3][3] === user) {
+                    return true
+                }
+                if (game[0][3] === user && game[1][3] === user && game[2][3] === user && game[3][3] === 'T') {
+                    return true
+                }
+
+
+                // chequeando las diagonales
+                if (game[0][0] === user && game[1][1] === user && game[2][2] === user && game[3][3] === user) {
+                    return true
+                }
+                if (game[0][0] === 'T' && game[1][1] === user && game[2][2] === user && game[3][3] === user) {
+                    return true
+                }
+                if (game[0][0] === user && game[1][1] === 'T' && game[2][2] === user && game[3][3] === user) {
+                    return true
+                }
+                if (game[0][0] === user && game[1][1] === user && game[2][2] === 'T' && game[3][3] === user) {
+                    return true
+                }
+                if (game[0][0] === user && game[1][1] === user && game[2][2] === user && game[3][3] === 'T') {
+                    return true
+                }
+
+
+                if (game[0][3] === user && game[1][2] === user && game[2][1] === user && game[3][0] === user) {
+                    return true
+                }
+                if (game[0][3] === 'T' && game[1][2] === user && game[2][1] === user && game[3][0] === user) {
+                    return true
+                }
+                if (game[0][3] === user && game[1][2] === 'T' && game[2][1] === user && game[3][0] === user) {
+                    return true
+                }
+                if (game[0][3] === user && game[1][2] === user && game[2][1] === 'T' && game[3][0] === user) {
+                    return true
+                }
+                if (game[0][3] === user && game[1][2] === user && game[2][1] === user && game[3][0] === 'T') {
+                    return true
+                }
+
+                return false
+            }
+
+            function setWinner(user) {
+                console.log(`${user} won`)
+                p++
+                if (p < cant) {
+                    game = [
+                    ['', '', '', ''],
+                    ['', '', '', ''],
+                    ['', '', '', ''],
+                    ['', '', '', ''],
+                ]
+                i = Math.floor((Math.random() * (4 - 0)) + 0)
+                j = Math.floor((Math.random() * (4 - 0)) + 0)
+                game[i][j] = 'T'
+                } else {   
+                    alert('FIN DEL JUEGO')
+                }   
+            }
+
+            function setDraw() {
+                console.log('Draw')
+                p++
+                if (p < cant) {
+                    game = [
+                    ['', '', '', ''],
+                    ['', '', '', ''],
+                    ['', '', '', ''],
+                    ['', '', '', ''],
+                ]
+                i = Math.floor((Math.random() * (4 - 0)) + 0)
+                j = Math.floor((Math.random() * (4 - 0)) + 0)
+                game[i][j] = 'T'
+                } else {
+                    alert('FIN DEL JUEGO')
+                }
+            }
+
+            function selectItem() {
+                game[this.dataset.row] [this.dataset.column] = currentUser
+                setBoard()
+
+                if (checkStatus(currentUser)) {
+                    setWinner(currentUser)
+                } else { 
+                    draw += 1;
+                }
+
+                if (draw === 15) {
+                    setDraw()
+                }
+
+                if (currentUser === 'X') {
+                    currentUser = 'O'
+                } else {
+                    currentUser = 'X'
+                }
+
+            }
+
+            function render({ content, row, column }, container) {
+                const el = document.createElement('span')
+                el.textContent = `${content}`
+                el.dataset.row = row
+                el.dataset.column = column
+                el.addEventListener('click', selectItem)
+                container.append(el)
+            }
+
+            function setBoard() {
+                container.innerHTML = ''
+                game.forEach((row, indexRow) => {
+                    row.forEach((column, indexColumn) => {
+                        //console.log(column)
+                        render({
+                            content: column,
+                            row: indexRow,
+                            column: indexColumn,
+                        },   window.container)
+                    })
+                })
+            }
+        
+            setBoard()
+            
+        </script>
+    </body>
+</html>
